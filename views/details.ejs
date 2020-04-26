@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiDetails</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>Your Digimon Details</header>
+    <main>
+        <form action="/update/<%=digiDetails.id%>?_method=put" method="POST">
+            <img src="<%=digiDetails.digimg%>">
+            <label>DigiName:<input type="text" name="diginame" value="<%=digiDetails.diginame%>"></label>
+            <label>DigiLevel<input type="text" name="digilevel" value="<%=digiDetails.digilevel%>"></label>
+            <button>Update Digimon</button>
+        </form>
+        <form action="/delete/<%=digiDetails.id%>?_method=delete" method="POST">
+        <button>Delete Digimon</button>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>

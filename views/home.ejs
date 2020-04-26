@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiHome</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to DigiHome</h1>
+    </header>
+    <main>
+        <% digimons.forEach(digi=>{%>
+            <section class="digistyle">
+                <img src="<%=digi.img%>" alt="digipic">
+                <h4>Digimon Name: <%= digi.name%></h4>
+                <p>Digimon Level: <%= digi.level%></p>
+                <form action="/save" method="POST">
+                    <input type="hidden" name="name" value="<%=digi.name%>">
+                    <input type="hidden" name="img" value="<%=digi.img%>">
+                    <input type="hidden" name="level" value="<%=digi.level%>">
+                <button>&plus;Add2Fav&plus;</button>
+                </form>
+            </section>
+        <% }) %>
+    </main>
+    <footer></footer>
+</body>
+</html>
