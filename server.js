@@ -20,6 +20,8 @@ app.post('/save', saveHandler);
 app.get('/details/:id', detailHandler);
 app.put('/update/:id', updateHandler);
 app.delete('/delete/:id', deleteHandler);
+app.get('/search', searchHandler);
+app.get('/result', resultHnadler);
 app.get('*', errorHandler);
 
 
@@ -75,7 +77,22 @@ function deleteHandler(req, res){
         res.redirect('/favs');
     })
 }
-
+function searchHandler(req, res){
+    res.render('search');
+}
+function resultHnadler(req, res){
+    let search= req.body.keyword;
+    let url='';
+    if(req.body.choice === 'name'){
+        url= `https://digimon-api.herokuapp.com/api/digimon/name/${search}`;
+    } else if(req.body.choice === 'level'){
+        url= `{https://digimon-api.herokuapp.com/api/digimon/level/${search}`;
+    }
+    superagent.get(url)
+    .then(result=>{
+        res.render('result', {result: result});
+    })
+}
 function errorHandler(req, res){
     res.status(404).send('PAGE NOT FOUND');
 }

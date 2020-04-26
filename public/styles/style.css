@@ -28,3 +28,11 @@ h1{
     padding: 20px;
     margin-bottom: 10px;
 }
+button{
+    border: navy solid;
+    background: #2f9696;
+    color: #0a0080;
+    border-radius: 15px;
+    box-shadow: cyan 10px 10px 10px;
+    margin: 10px;
+}
